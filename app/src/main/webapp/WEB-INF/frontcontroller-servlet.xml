@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+  <!-- Serve GWT static resources all right -->
+  <mvc:resources mapping="/*.rpc" location="/app/" />
+  <mvc:resources mapping="/*.html" location="/app/" />
+  <mvc:resources mapping="/*.js" location="/app/" />
+  <mvc:resources mapping="/*.gif" location="/app/" />
+
+  <!-- Enable annotation scanning to find beans -->
+  <context:annotation-config />
+  <context:component-scan base-package="com.flexyquiz.app.server.func" />
+  <mvc:annotation-driven />
+
+  <!-- URL mappings will use bean names -->
+  <bean id="urlMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+</beans>

@@ -1,0 +1,19 @@
+.dialog {
+	padding: 10px 10px 5px 10px
+}
+
+.dialog-content tr { 
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.dialog-message {
+	max-width: 800px;
+	max-height: 400px;
+	text-shadow: none;
+}
+
+.dialog-buttons-panel td {
+	padding-right: 5px;
+}

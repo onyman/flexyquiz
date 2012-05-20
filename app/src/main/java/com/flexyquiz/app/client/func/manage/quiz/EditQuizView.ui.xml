@@ -1,0 +1,55 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+  xmlns:w="urn:import:com.google.gwt.user.cellview.client" xmlns:flexy="urn:import:com.flexyquiz.app.client.func.common">
+
+  <g:HTMLPanel>
+
+    <div class="row">
+      <div class="span2">
+        <flexy:ManagementNavigationWidget />
+      </div>
+
+      <div class="span10">
+        <flexy:HeaderWidget title="Edit quiz" />
+
+        <div class="row">
+          <div class="span1">Name</div>
+          <div class="span5">
+            <g:TextBox ui:field="nameTextBox" styleName="input-xlarge"></g:TextBox>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="span1">Description</div>
+          <div class="span5">
+            <g:TextBox ui:field="descriptionTextBox" styleName="input-xlarge"></g:TextBox>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span2">This quiz has 20 questions</div> <!-- TODO: put number of questions from quiz -->
+        </div>
+        <div class="row">
+          <div class="span2">
+            <g:Button ui:field="editQuestionsButton" styleName="btn">Edit quiz questions &raquo; </g:Button>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 15px">
+          <div class="span3">
+            <g:Button ui:field="cancelButton" styleName="btn btn-primary"> &laquo; Back</g:Button>
+            <g:Button ui:field="saveButton" styleName="btn btn-primary">Save</g:Button>
+          </div>
+          <div class="span2">
+            <g:Button ui:field="deleteButton" styleName="btn btn-danger">
+              <i class="icon-trash"></i>
+              Trash
+            </g:Button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </g:HTMLPanel>
+
+</ui:UiBinder>

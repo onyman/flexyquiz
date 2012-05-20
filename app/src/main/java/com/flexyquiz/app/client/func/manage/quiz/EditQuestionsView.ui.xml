@@ -1,0 +1,78 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+  xmlns:w="urn:import:com.google.gwt.user.cellview.client" xmlns:flexy="urn:import:com.flexyquiz.app.client.func.common">
+
+  <g:HTMLPanel>
+    <div class="row">
+      <div class="span2">
+        <flexy:ManagementNavigationWidget />
+      </div>
+
+      <div class="span10">
+        <flexy:HeaderWidget ui:field="header" title="Edit quiz questions" />
+
+        <div class="pagination">
+          <ul>
+            <li class="active">
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#">2</a>
+            </li>
+            <li>
+              <a href="#">3</a>
+            </li>
+            <li>
+              <a href="#">4</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="row">
+          <div class="span1">Question text</div>
+          <div class="span2">
+            <g:TextArea styleName="input-xxlarge" visibleLines="5" ui:field="questionTextArea"></g:TextArea>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="span1">Type</div>
+          <div class="span2">
+            <g:ValueListBox ui:field="typeListBox"/>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="span1">Answer</div>
+          <div class="span6">
+            <input type="text" class="input-xxlarge" />
+          </div>
+          <div class="span2">
+            <g:Button styleName="btn btn-mini btn-danger"><i class="icon-trash"/></g:Button>
+            <g:Button styleName="btn btn-mini btn-success"><i class="icon-plus-sign"/></g:Button>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="span1">Explanation</div>
+          <div class="span2">
+            <g:TextArea styleName="input-xxlarge" visibleLines="5" ui:field="explanationTextArea"></g:TextArea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="span5">
+            <g:Button styleName="btn btn-primary" ui:field="buttonBack">&laquo; Done editing questions</g:Button>
+            <g:Button styleName="btn btn-primary" ui:field="buttonSave">Save</g:Button>
+            <g:Button styleName="btn btn-success" ui:field="buttonSaveAndNext">Save and next/add &raquo;</g:Button>
+            <g:Button styleName="btn btn-success" ui:field="buttonAdd">Add &raquo;</g:Button>
+          </div>
+          <div class="span2 offset2" style="padding-right: 5px;">
+            <g:Button styleName="btn btn-danger" ui:field="buttonDelete"><i class="icon-trash"/> Delete</g:Button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </g:HTMLPanel>
+</ui:UiBinder>
