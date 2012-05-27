@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.flexyquiz.app.client.core.mvp.BaseView;
 import com.flexyquiz.app.client.core.mvp.View;
 import com.flexyquiz.app.client.core.widget.EnumRenderer;
+import com.flexyquiz.app.client.func.common.PagesWidget;
 import com.flexyquiz.app.shared.core.model.HasDisplayName;
 import com.flexyquiz.app.shared.func.model.Question;
 import com.flexyquiz.app.shared.func.model.QuestionType;
@@ -32,8 +33,11 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
    */
 
   @UiField
+  PagesWidget pagesWidget;
+
+  @UiField
   TextArea questionTextArea;
-  
+
   @UiField(provided = true)
   ValueListBox typeListBox;
 
@@ -58,14 +62,14 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
   public EditQuestionsView() {
     typeListBox = new ValueListBox<QuestionType>(new EnumRenderer<QuestionType>());
     typeListBox.setAcceptableValues(Arrays.asList(QuestionType.values()));
-    
+
     initWidget(uiBinder.createAndBindUi(this));
   }
 
-  public void setData(Question question) {
+  public void setData(Question question, int totalQuestions) {
     this.question = question;
     // header.setTitle("Edit quiz questions: " + quiz.getName());
-
+    pagesWidget.update(totalQuestions);
     questionTextArea.setText(question.getQuestionText());
     typeListBox.setValue(question.getType());
     explanationTextArea.setText(question.getExplanation());

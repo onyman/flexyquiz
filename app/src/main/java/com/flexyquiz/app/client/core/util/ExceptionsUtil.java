@@ -10,6 +10,10 @@ public class ExceptionsUtil {
     for (StackTraceElement element : e.getStackTrace()) {
       sb.append("\t").append(element.toString()).append("\n");
     }
+    if (e.getCause() != null) {
+      sb.append("\nCaused by:\n");
+      sb.append(throwableToString(e.getCause()));
+    }
     return sb.toString();
   }
 }

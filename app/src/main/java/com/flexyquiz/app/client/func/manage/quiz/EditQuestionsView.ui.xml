@@ -11,22 +11,7 @@
       <div class="span10">
         <flexy:HeaderWidget ui:field="header" title="Edit quiz questions" />
 
-        <div class="pagination">
-          <ul>
-            <li class="active">
-              <a href="#">1</a>
-            </li>
-            <li>
-              <a href="#">2</a>
-            </li>
-            <li>
-              <a href="#">3</a>
-            </li>
-            <li>
-              <a href="#">4</a>
-            </li>
-          </ul>
-        </div>
+        <flexy:PagesWidget ui:field="pagesWidget" />
 
         <div class="row">
           <div class="span1">Question text</div>
@@ -34,25 +19,29 @@
             <g:TextArea styleName="input-xxlarge" visibleLines="5" ui:field="questionTextArea"></g:TextArea>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="span1">Type</div>
           <div class="span2">
-            <g:ValueListBox ui:field="typeListBox"/>
+            <g:ValueListBox ui:field="typeListBox" />
           </div>
         </div>
-        
+
         <div class="row">
           <div class="span1">Answer</div>
           <div class="span6">
             <input type="text" class="input-xxlarge" />
           </div>
           <div class="span2">
-            <g:Button styleName="btn btn-mini btn-danger"><i class="icon-trash"/></g:Button>
-            <g:Button styleName="btn btn-mini btn-success"><i class="icon-plus-sign"/></g:Button>
+            <g:Button styleName="btn btn-mini btn-danger">
+              <i class="icon-trash" />
+            </g:Button>
+            <g:Button styleName="btn btn-mini btn-success">
+              <i class="icon-plus-sign" />
+            </g:Button>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="span1">Explanation</div>
           <div class="span2">
@@ -68,7 +57,10 @@
             <g:Button styleName="btn btn-success" ui:field="buttonAdd">Add &raquo;</g:Button>
           </div>
           <div class="span2 offset2" style="padding-right: 5px;">
-            <g:Button styleName="btn btn-danger" ui:field="buttonDelete"><i class="icon-trash"/> Delete</g:Button>
+            <g:Button styleName="btn btn-danger" ui:field="buttonDelete">
+              <i class="icon-trash" />
+              Delete
+            </g:Button>
           </div>
         </div>
 

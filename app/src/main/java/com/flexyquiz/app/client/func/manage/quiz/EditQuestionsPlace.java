@@ -7,6 +7,7 @@ import com.flexyquiz.app.client.core.mvp.PlaceWithName;
 @PlaceWithName(name = "editquestion")
 public class EditQuestionsPlace extends BasePlace {
   private String quizId;
+  private int questionNumber = 0;
 
   public EditQuestionsPlace() {
   }
@@ -17,7 +18,7 @@ public class EditQuestionsPlace extends BasePlace {
 
   @Override
   public BaseActivity getActivity() {
-    return new EditQuestionsActivity(quizId);
+    return new EditQuestionsActivity(quizId, questionNumber);
   }
 
   @Override
@@ -27,6 +28,12 @@ public class EditQuestionsPlace extends BasePlace {
 
   @Override
   public void init(String token) {
-    this.quizId = token;
+    String[] tokens = token.split(":", 2);
+    if (tokens.length == 1) {
+      this.quizId = token;
+    } else {
+      this.quizId = tokens[0];
+      this.questionNumber = Integer.parseInt(tokens[1]) - 1;
+    }
   }
 }

@@ -22,7 +22,7 @@ public class EditQuestionsActivity extends BaseActivity {
 
     public HasClickHandlers getButtonDelete();
 
-    public void setData(Question quiz);
+    public void setData(Question quiz, int totalQuestions);
 
     public Question getData();
   }
@@ -31,15 +31,16 @@ public class EditQuestionsActivity extends BaseActivity {
 
   private String quizId;
   private List<? extends Question> questions;
-  private int currentQuestionIndex = -1;
+  private int currentQuestionIndex;
 
-  public EditQuestionsActivity(String quizId) {
+  public EditQuestionsActivity(String quizId, int questionNumber) {
     this.quizId = quizId;
+    currentQuestionIndex = questionNumber;
     quizRpcService.getQuestions(quizId, new ErrorHandlingAsyncCallback<List<? extends Question>>() {
       public void onSuccess(List<? extends Question> result) {
         questions = result;
         currentQuestionIndex = 0;
-        display().setData(questions.get(currentQuestionIndex));
+        display().setData(questions.get(currentQuestionIndex), questions.size());
       }
     });
   }
