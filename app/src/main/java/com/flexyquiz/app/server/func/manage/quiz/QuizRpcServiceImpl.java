@@ -1,5 +1,6 @@
 package com.flexyquiz.app.server.func.manage.quiz;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,9 @@ public class QuizRpcServiceImpl extends GwtRpcController implements QuizRpcServi
   private QuestionRepository questionRepo;
 
   public List<? extends Quiz> getQuizList() {
-    return quizRepo.findAll();
+    List<? extends Quiz> quizList = quizRepo.findAll();
+    Collections.sort(quizList);
+    return quizList;
   }
 
   public Quiz getById(String id) {
@@ -30,21 +33,6 @@ public class QuizRpcServiceImpl extends GwtRpcController implements QuizRpcServi
 
   public void save(Quiz quiz) {
     quizRepo.save((QuizImpl) quiz);
-    
-    /*Answer a = new AnswerImpl();
-    a.setAnswerText("That is a correct answer");
-    a.setCorrect(true);
-    List<Answer> answers = new ArrayList<Answer>();
-    answers.add(a);
-    
-    QuestionImpl q = new QuestionImpl();
-    q.setQuizId(quiz.getId());
-    q.setQuestionText("What is the correct answer?");
-    q.setType(QuestionType.MULTIPLE_CORRECT_ANSWERS);
-    q.setAnswers(answers);
-    q.setExplanation("Because it says so!");
-    
-    questionRepo.save(q);*/
   }
 
   public void delete(Quiz quiz) {

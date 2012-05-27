@@ -15,6 +15,10 @@ public abstract class AbstractPersistent implements Persistent {
   }
 
   public boolean isNew() {
-    return id == null; 
+    return id == null;
+  }
+
+  public int compareTo(Object o) {
+    return id.compareTo(((AbstractPersistent) o).getId());
   }
 }

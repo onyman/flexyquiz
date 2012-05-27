@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.flexyquiz.app.shared.core.model.AbstractPersistent;
 
-@Document(collection="quiz")
+@Document(collection = "quiz")
 public class QuizImpl extends AbstractPersistent implements Quiz {
   private String name;
   private String description;
@@ -23,5 +23,10 @@ public class QuizImpl extends AbstractPersistent implements Quiz {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  @Override
+  public int compareTo(Object o) {
+    return getName().compareTo(((QuizImpl) o).getName());
   }
 }
