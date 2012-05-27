@@ -6,7 +6,6 @@ import com.flexyquiz.app.client.core.mvp.BaseView;
 import com.flexyquiz.app.client.core.mvp.View;
 import com.flexyquiz.app.client.core.widget.EnumRenderer;
 import com.flexyquiz.app.client.func.common.PagesWidget;
-import com.flexyquiz.app.shared.core.model.HasDisplayName;
 import com.flexyquiz.app.shared.func.model.Question;
 import com.flexyquiz.app.shared.func.model.QuestionType;
 import com.google.gwt.core.client.GWT;
@@ -14,7 +13,6 @@ import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.ValueListBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -66,10 +64,10 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
     initWidget(uiBinder.createAndBindUi(this));
   }
 
-  public void setData(Question question, int totalQuestions) {
+  public void setData(Question question, int totalQuestions, int currentQuestion) {
     this.question = question;
     // header.setTitle("Edit quiz questions: " + quiz.getName());
-    pagesWidget.update(totalQuestions);
+    pagesWidget.update(totalQuestions, currentQuestion + 1);
     questionTextArea.setText(question.getQuestionText());
     typeListBox.setValue(question.getType());
     explanationTextArea.setText(question.getExplanation());

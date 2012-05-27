@@ -11,11 +11,12 @@ public class PagesWidget extends Composite {
     initWidget(innerHtml);
   }
 
-  public void update(int pagesCount) {
+  public void update(int pagesCount, int currentPage) {
     StringBuilder sb = new StringBuilder();
     sb.append("<div class='pagination'><ul class='pages'>");
     for (int i = 1; i <= pagesCount; i++) {
-      sb.append("<li><a href='#" + History.getToken() + ":" + i + "'>" + i + "</a></li>");
+      String styleClass = currentPage == i ? "active" : "notactive";
+      sb.append("<li class='" + styleClass + "'><a href='#" + History.getToken() + ":" + i + "'>" + i + "</a></li>");
     }
     sb.append("</ul></div>");
     innerHtml.setHTML(sb.toString());

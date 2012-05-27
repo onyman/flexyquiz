@@ -22,7 +22,7 @@ public class EditQuestionsActivity extends BaseActivity {
 
     public HasClickHandlers getButtonDelete();
 
-    public void setData(Question quiz, int totalQuestions);
+    public void setData(Question quiz, int totalQuestions, int currentQuestion);
 
     public Question getData();
   }
@@ -40,7 +40,7 @@ public class EditQuestionsActivity extends BaseActivity {
       public void onSuccess(List<? extends Question> result) {
         questions = result;
         currentQuestionIndex = 0;
-        display().setData(questions.get(currentQuestionIndex), questions.size());
+        display().setData(questions.get(currentQuestionIndex), questions.size(), currentQuestionIndex);
       }
     });
   }
