@@ -3,6 +3,7 @@ package com.flexyquiz.app.shared.func.model;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.flexyquiz.app.shared.core.model.AbstractPersistent;
+import com.flexyquiz.app.shared.core.model.Persistent;
 
 @Document(collection = "quiz")
 public class QuizImpl extends AbstractPersistent implements Quiz {
@@ -26,7 +27,7 @@ public class QuizImpl extends AbstractPersistent implements Quiz {
   }
 
   @Override
-  public int compareTo(Object o) {
+  public int compareTo(Persistent o) {
     return getName().compareTo(((QuizImpl) o).getName());
   }
 }
