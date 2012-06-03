@@ -39,7 +39,6 @@ public class EditQuestionsActivity extends BaseActivity {
     quizRpcService.getQuestions(quizId, new ErrorHandlingAsyncCallback<List<? extends Question>>() {
       public void onSuccess(List<? extends Question> result) {
         questions = result;
-        currentQuestionIndex = 0;
         display().setData(questions.get(currentQuestionIndex), questions.size(), currentQuestionIndex);
       }
     });

@@ -1,0 +1,20 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+  xmlns:w="urn:import:com.google.gwt.user.cellview.client" xmlns:flexy="urn:import:com.flexyquiz.app.client.func.common">
+
+  <g:HTMLPanel styleName="row">
+    <div class="span1">Answer</div>
+    <div class="span6">
+      <g:TextBox ui:field="answerText" styleName="input-xxlarge"/>
+    </div>
+    <div class="span2">
+      <g:Button ui:field="buttonDelete" styleName="btn btn-mini btn-danger">
+        <i class="icon-trash" />
+      </g:Button>
+      <g:Button ui:field="buttonAdd" styleName="btn btn-mini btn-success">
+        <i class="icon-plus-sign" />
+      </g:Button>
+    </div>
+  </g:HTMLPanel>
+
+</ui:UiBinder>

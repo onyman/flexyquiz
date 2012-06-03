@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.flexyquiz.app.client.core.mvp.BaseView;
 import com.flexyquiz.app.client.core.mvp.View;
 import com.flexyquiz.app.client.core.widget.EnumRenderer;
+import com.flexyquiz.app.client.func.common.AnswersWidget;
 import com.flexyquiz.app.client.func.common.PagesWidget;
 import com.flexyquiz.app.shared.func.model.Question;
 import com.flexyquiz.app.shared.func.model.QuestionType;
@@ -40,6 +41,9 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
   ValueListBox typeListBox;
 
   @UiField
+  AnswersWidget answersWidget;
+  
+  @UiField
   TextArea explanationTextArea;
 
   @UiField
@@ -70,6 +74,7 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
     pagesWidget.update(totalQuestions, currentQuestion + 1);
     questionTextArea.setText(question.getQuestionText());
     typeListBox.setValue(question.getType());
+    answersWidget.setData(question.getAnswers());
     explanationTextArea.setText(question.getExplanation());
   }
 

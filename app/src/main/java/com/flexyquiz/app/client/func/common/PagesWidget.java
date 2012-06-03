@@ -4,6 +4,7 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 
+// TODO: improve redraw logic: should not redraw entire HTML when just active page position changed
 public class PagesWidget extends Composite {
   private HTML innerHtml = new HTML("<div>Not yet initialized</div>");
 

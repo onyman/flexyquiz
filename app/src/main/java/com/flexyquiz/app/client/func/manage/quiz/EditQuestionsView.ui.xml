@@ -27,7 +27,9 @@
           </div>
         </div>
 
-        <div class="row">
+        <flexy:AnswersWidget ui:field="answersWidget" />
+
+        <!-- <div class="row">
           <div class="span1">Answer</div>
           <div class="span6">
             <input type="text" class="input-xxlarge" />
@@ -40,7 +42,7 @@
               <i class="icon-plus-sign" />
             </g:Button>
           </div>
-        </div>
+        </div> -->
 
         <div class="row">
           <div class="span1">Explanation</div>
