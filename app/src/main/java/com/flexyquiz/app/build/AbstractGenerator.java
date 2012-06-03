@@ -1,5 +1,7 @@
 package com.flexyquiz.app.build;
 
+import java.io.PrintWriter;
+
 import com.google.gwt.core.ext.Generator;
 import com.google.gwt.core.ext.GeneratorContext;
 import com.google.gwt.core.ext.TreeLogger;
@@ -9,8 +11,6 @@ import com.google.gwt.core.ext.typeinfo.NotFoundException;
 import com.google.gwt.core.ext.typeinfo.TypeOracle;
 import com.google.gwt.user.rebind.ClassSourceFileComposerFactory;
 import com.google.gwt.user.rebind.SourceWriter;
-
-import java.io.PrintWriter;
 
 public abstract class AbstractGenerator extends Generator {
   private TreeLogger logger;
