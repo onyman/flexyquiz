@@ -18,5 +18,9 @@ public interface QuizRpcService extends RemoteService {
   void delete(Quiz quiz);
   
   
-  List<? extends Question> getQuestions(String quizId);
+  List<Question> getQuestions(String quizId);
+  
+  void saveQuestion(Question question);
+  
+  void deleteQuestion(Question question);
 }

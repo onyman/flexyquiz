@@ -2,12 +2,9 @@ package com.flexyquiz.app.shared.func.model;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.flexyquiz.app.shared.core.model.Persistent;
 
 public interface Question extends Persistent {
-
   String getQuizId();
 
   String getQuestionText();
@@ -27,5 +24,4 @@ public interface Question extends Persistent {
   void setAnswers(List<Answer> answers);
 
   void setExplanation(String explanation);
-
 }

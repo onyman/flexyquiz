@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import com.flexyquiz.app.client.func.manage.quiz.QuizRpcService;
 import com.flexyquiz.app.server.core.rpc.GwtRpcController;
 import com.flexyquiz.app.shared.func.model.Question;
+import com.flexyquiz.app.shared.func.model.QuestionImpl;
 import com.flexyquiz.app.shared.func.model.Quiz;
 import com.flexyquiz.app.shared.func.model.QuizImpl;
 
@@ -17,7 +18,7 @@ public class QuizRpcServiceImpl extends GwtRpcController implements QuizRpcServi
 
   @Autowired
   private QuizRepository quizRepo;
-  
+
   @Autowired
   private QuestionRepository questionRepo;
 
@@ -39,7 +40,16 @@ public class QuizRpcServiceImpl extends GwtRpcController implements QuizRpcServi
     quizRepo.delete((QuizImpl) quiz);
   }
 
-  public List<? extends Question> getQuestions(String quizId) {
-    return questionRepo.findByQuizId(quizId);
+  public List<Question> getQuestions(String quizId) {
+    List result = questionRepo.findByQuizId(quizId);
+    return (List<Question>) result;
+  }
+
+  public void saveQuestion(Question question) {
+    questionRepo.save((QuestionImpl) question);
+  }
+
+  public void deleteQuestion(Question question) {
+    questionRepo.delete((QuestionImpl) question);
   }
 }

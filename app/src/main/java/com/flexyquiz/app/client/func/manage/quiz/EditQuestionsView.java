@@ -6,6 +6,7 @@ import com.flexyquiz.app.client.core.mvp.BaseView;
 import com.flexyquiz.app.client.core.mvp.View;
 import com.flexyquiz.app.client.core.widget.EnumRenderer;
 import com.flexyquiz.app.client.func.common.AnswersWidget;
+import com.flexyquiz.app.client.func.common.HeaderWidget;
 import com.flexyquiz.app.client.func.common.PagesWidget;
 import com.flexyquiz.app.shared.func.model.Question;
 import com.flexyquiz.app.shared.func.model.QuestionType;
@@ -27,9 +28,9 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
 
   private Question question;
 
-  /*
-   * @UiField HeaderWidget header;
-   */
+  
+  @UiField
+  HeaderWidget header;
 
   @UiField
   PagesWidget pagesWidget;
@@ -82,8 +83,12 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
     question.setQuestionText(questionTextArea.getText());
     question.setType((QuestionType) typeListBox.getValue());
     question.setExplanation(explanationTextArea.getText());
-
+    question.setAnswers(answersWidget.getData());
     return question;
+  }
+
+  public void showMessage(String message) {
+    header.showTempMessage(message);
   }
 
   public HasClickHandlers getButtonBack() {
