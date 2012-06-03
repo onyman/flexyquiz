@@ -55,6 +55,7 @@ public abstract class GwtRpcController extends RemoteServiceServlet implements C
       return null;
     }
 
+    @SuppressWarnings("rawtypes") // this comes from Servlet API
     public Enumeration getInitParameterNames() {
       return null;
     }

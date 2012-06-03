@@ -40,6 +40,7 @@ public class QuizRpcServiceImpl extends GwtRpcController implements QuizRpcServi
     quizRepo.delete((QuizImpl) quiz);
   }
 
+  @SuppressWarnings({ "rawtypes", "unchecked" })
   public List<Question> getQuestions(String quizId) {
     List result = questionRepo.findByQuizId(quizId);
     return (List<Question>) result;

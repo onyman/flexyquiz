@@ -18,7 +18,7 @@ public abstract class AbstractPersistent implements Persistent {
     return id == null;
   }
 
-  public int compareTo(Object o) {
-    return id.compareTo(((AbstractPersistent) o).getId());
+  public int compareTo(Persistent o) {
+    return id.compareTo(o.getId());
   }
 }

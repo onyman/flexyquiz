@@ -39,7 +39,7 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
   TextArea questionTextArea;
 
   @UiField(provided = true)
-  ValueListBox typeListBox;
+  ValueListBox<QuestionType> typeListBox;
 
   @UiField
   AnswersWidget answersWidget;
