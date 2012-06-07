@@ -1,3 +1,39 @@
-questions setup - indicate correct answer(s)
+# Questions setup 
+Indicate and store correct answer(s)
 
-don't delete quiz but store to trash instead
+# Delete (Trash) Quiz
+Don't delete quiz but store to trash instead
+
+# Add/edit quiz/questions workflow
+Add warnings when leaving pages with not saved data; review entire workflow - what 
+user can do wrong? not pressing save at some place os smth.? add "background" messages when saving somehting for user
+without user explicitly pressing "Save"
+
+# Save quiz/question - validate
+Validate quiz and questions instances for consistency upon saving
+
+# Code review for quiz/questions workflow
+Review and use common approaches everywhere (now complete mess in functional code)
+
+# Manage users
+Implement CRUD for new User entity
+
+# Question edit - rich edit for text items
+Enlarge answers' text boxes, replace all text boxes with rich text edit widget to allow righ formatting, in particular
+to allow entering code snippets
+
+# Take a quiz worklflow
+Implement "Take a Quiz" function.
+
+# View taken quizzes workflow
+Implement a function allowing manager-level users to review quizzes taken by other users (review results, including
+answers to every question)
+
+# "Manually checked" quizzes
+System should allow setting up quizzes where no correct answer is known beforehand, and only a manager-level reviewer 
+can review the results and decide what are the correct answers. Implement workflow to set it up, take it, and review the
+results.
+
+# Statistics Quiz
+System should allow setting up quizzes where no correct answer is ever possible. This quizzes are supposed to be used to 
+collect "statistical" information.
