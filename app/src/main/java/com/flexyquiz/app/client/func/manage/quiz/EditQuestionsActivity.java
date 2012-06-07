@@ -42,11 +42,19 @@ public class EditQuestionsActivity extends BaseActivity {
   private List<Question> questions;
   private int currentQuestionIndex;
 
-  public EditQuestionsActivity(String quizId, int questionNumber) {
+  public EditQuestionsActivity(final String quizId, int questionNumber) {
     this.quizId = quizId;
     currentQuestionIndex = questionNumber;
     quizRpcService.getQuestions(quizId, new ErrorHandlingAsyncCallback<List<Question>>() {
       public void onSuccess(List<Question> result) {
+        if (result.isEmpty()) {
+          Question newQuestion = new QuestionImpl();
+          newQuestion.setQuizId(quizId);
+          List<Answer> answers = new ArrayList<Answer>();
+          answers.add(new AnswerImpl());
+          newQuestion.setAnswers(answers);
+          result.add(newQuestion);
+        }
         questions = result;
         updateView();
       }
@@ -61,7 +69,7 @@ public class EditQuestionsActivity extends BaseActivity {
   protected void bind() {
     display().getButtonBack().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-        goTo(new ListQuizPlace());
+        goTo(new EditQuizPlace(quizId));
       }
     });
     display().getButtonSave().addClickHandler(new ClickHandler() {

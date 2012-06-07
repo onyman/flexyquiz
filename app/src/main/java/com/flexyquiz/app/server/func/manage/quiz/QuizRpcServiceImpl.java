@@ -32,8 +32,8 @@ public class QuizRpcServiceImpl extends GwtRpcController implements QuizRpcServi
     return quizRepo.findOne(id);
   }
 
-  public void save(Quiz quiz) {
-    quizRepo.save((QuizImpl) quiz);
+  public Quiz save(Quiz quiz) {
+    return quizRepo.save((QuizImpl) quiz);
   }
 
   public void delete(Quiz quiz) {

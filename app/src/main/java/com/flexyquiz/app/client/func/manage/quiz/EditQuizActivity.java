@@ -2,6 +2,7 @@ package com.flexyquiz.app.client.func.manage.quiz;
 
 import com.flexyquiz.app.client.core.mvp.BaseActivity;
 import com.flexyquiz.app.client.core.mvp.BaseDisplay;
+import com.flexyquiz.app.client.core.mvp.BasePlace;
 import com.flexyquiz.app.client.core.rpc.ErrorHandlingAsyncCallback;
 import com.flexyquiz.app.client.core.widget.dialog.ConfirmationDialogEvent;
 import com.flexyquiz.app.client.core.widget.dialog.ConfirmationDialogEventHandler;
@@ -60,7 +61,7 @@ public class EditQuizActivity extends BaseActivity {
     });
     display().getEditQuestionsButton().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-        editQuizQuestions();
+        editQuestions();
       }
     });
   }
@@ -70,9 +71,17 @@ public class EditQuizActivity extends BaseActivity {
   }
 
   private void saveQuiz() {
-    quizRpcService.save(display().getData(), new ErrorHandlingAsyncCallback<Void>() {
-      public void onSuccess(Void result) {
+    quizRpcService.save(display().getData(), new ErrorHandlingAsyncCallback<Quiz>() {
+      public void onSuccess(Quiz result) {
         goTo(new ListQuizPlace());
+      }
+    });
+  }
+
+  private void editQuestions() {
+    quizRpcService.save(display().getData(), new ErrorHandlingAsyncCallback<Quiz>() {
+      public void onSuccess(Quiz result) {
+        goTo(new EditQuestionsPlace(result.getId()));
       }
     });
   }
@@ -94,9 +103,5 @@ public class EditQuizActivity extends BaseActivity {
         goTo(new ListQuizPlace());
       }
     });
-  }
-
-  private void editQuizQuestions() {
-    goTo(new EditQuestionsPlace(display().getData().getId()));
   }
 }

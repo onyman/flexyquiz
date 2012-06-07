@@ -13,7 +13,7 @@ public interface QuizRpcService extends RemoteService {
 
   Quiz getById(String id);
  
-  void save(Quiz quiz);
+  Quiz save(Quiz quiz);
   
   void delete(Quiz quiz);
   

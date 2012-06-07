@@ -1,2 +1,3 @@
-add quiz - cannot edit questions (questions list not initialized)
 questions setup - indicate correct answer(s)
+
+don't delete quiz but store to trash instead

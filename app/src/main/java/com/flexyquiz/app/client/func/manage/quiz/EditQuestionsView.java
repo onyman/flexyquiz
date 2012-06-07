@@ -71,7 +71,6 @@ public class EditQuestionsView extends BaseView implements EditQuestionsActivity
 
   public void setData(Question question, int totalQuestions, int currentQuestion) {
     this.question = question;
-    // header.setTitle("Edit quiz questions: " + quiz.getName());
     pagesWidget.update(totalQuestions, currentQuestion + 1);
     questionTextArea.setText(question.getQuestionText());
     typeListBox.setValue(question.getType());
