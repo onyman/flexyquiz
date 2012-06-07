@@ -23,14 +23,15 @@ public class EditQuestionsPlace extends BasePlace {
 
   @Override
   public String getToken() {
-    return "" + quizId;
+    return quizId;
   }
 
   @Override
   public void init(String token) {
-    String[] tokens = token.split(":", 2);
+    String[] tokens = getTokenItems(token, 2);
     if (tokens.length == 1) {
       this.quizId = token;
+      this.questionNumber = 0;
     } else {
       this.quizId = tokens[0];
       this.questionNumber = Integer.parseInt(tokens[1]) - 1;
